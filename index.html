@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>潦倒人生翻身宝典</title>
+<style>
+  :root{
+    --bg:#f4f8f6;--panel:#ffffff;--card:#eef7f2;
+    --ink:#2f3e3a;--ink-soft:#5f726b;--ink-faint:#9fb0a9;
+    --accent:#3a9d7a;--accent-b:#5fbf9a;--line:#dceae3;
+    --sans:-apple-system,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:linear-gradient(160deg,#eef6f1,#f8fbfa 40%,#eef3f6);color:var(--ink);font-family:var(--sans);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+  a:hover{border-bottom-color:var(--accent)}
+  /* 侧边栏 */
+  .sidebar{position:fixed;top:0;left:0;bottom:0;width:272px;background:rgba(255,255,255,.75);backdrop-filter:blur(6px);border-right:1px solid var(--line);overflow-y:auto;padding:30px 20px;z-index:50}
+  .brand{text-align:center;padding-bottom:20px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+  .brand .logo{width:46px;height:46px;margin:0 auto 12px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-b));display:grid;place-items:center;color:#fff;font-size:20px;font-weight:700;box-shadow:0 6px 18px rgba(58,157,122,.35)}
+  .brand h1{font-size:19px;font-weight:700;margin:0;letter-spacing:1px;color:var(--accent)}
+  .brand .sub{font-size:12px;color:var(--ink-faint);margin-top:6px;letter-spacing:2px}
+  nav a{display:block;padding:8px 12px;margin:2px 0;color:var(--ink-soft);font-size:14px;border-radius:10px;transition:all .15s}
+  nav a:hover{background:var(--card);color:var(--ink)}
+  nav a.active{background:linear-gradient(135deg,var(--accent),var(--accent-b));color:#fff;font-weight:600;box-shadow:0 4px 12px rgba(58,157,122,.3)}
+  /* 主区 */
+  .main{margin-left:272px;padding:52px 6vw 90px}
+  .inner{max-width:780px;margin:0 auto}
+  .hero{text-align:center;padding:30px 0 24px;margin-bottom:36px}
+  .hero .pill{display:inline-block;background:var(--card);color:var(--accent);font-size:12px;letter-spacing:2px;padding:5px 16px;border-radius:20px;margin-bottom:16px}
+  .hero h2{font-size:40px;font-weight:800;margin:0 0 12px;background:linear-gradient(90deg,var(--accent),var(--accent-b));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:2px}
+  .hero p{color:var(--ink-soft);margin:4px 0}
+  section.chapter{background:var(--panel);border-radius:18px;padding:38px 42px;margin:28px 0;box-shadow:0 8px 28px rgba(58,120,100,.07);border:1px solid var(--line)}
+  section.chapter h2.sec{font-size:23px;font-weight:800;margin:0 0 8px;color:var(--accent);display:flex;align-items:center;gap:12px}
+  section.chapter h2.sec .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-b));flex:none;box-shadow:0 0 0 4px var(--card)}
+  h3.sub{font-size:17px;font-weight:700;margin:28px 0 10px;color:var(--ink);padding-left:12px;border-left:3px solid var(--accent-b)}
+  p{margin:12px 0}
+  .note{background:var(--card);border-radius:12px;padding:14px 20px;color:var(--ink-soft);font-size:15px;margin:16px 0}
+  .warn{background:#fff6f4;border:1px solid #f4cfc6;color:#c96a4d;padding:18px 22px;font-weight:600;margin:18px 0;text-align:center;border-radius:12px}
+  .example{background:var(--card);border-radius:14px;padding:20px 22px;margin:16px 0}
+  .example .et{font-size:12px;font-weight:800;color:var(--accent);letter-spacing:1px;margin-bottom:8px}
+  .poem{text-align:center;line-height:2.4;font-size:20px;font-weight:600;background:linear-gradient(135deg,#eef7f2,#edf4f8);border:1px solid var(--line);border-radius:16px;padding:46px 20px;margin:20px 0;color:var(--accent);letter-spacing:4px}
+  ul,ol{padding-left:24px}
+  li{margin:9px 0}
+  strong{font-weight:700}
+  /* 移动端 */
+  .nav-toggle{display:none;position:fixed;top:12px;right:12px;z-index:60;background:var(--accent);color:#fff;border:none;font-size:14px;padding:9px 16px;border-radius:20px;cursor:pointer;box-shadow:0 4px 12px rgba(58,157,122,.3)}
+  .backdrop{display:none}
+  @media (max-width:820px){
+    .sidebar{width:256px;transform:translateX(-102%);transition:transform .22s ease;box-shadow:0 0 40px rgba(0,0,0,.25)}
+    body.nav-open .sidebar{transform:none}
+    .main{margin-left:0;padding:70px 16px 60px}
+    .nav-toggle{display:block}
+    body.nav-open .backdrop{display:block;position:fixed;inset:0;background:rgba(58,90,80,.3);z-index:45}
+    .hero h2{font-size:30px}
+    section.chapter{padding:30px 20px}
+  }
+  @media print{
+    .sidebar,.nav-toggle,.backdrop{display:none!important}.main{margin:0;padding:0}
+    section.chapter{box-shadow:none;page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<button class="nav-toggle" id="navToggle">☰ 目录</button>
+<div class="backdrop" id="backdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="logo">宝</div><h1>潦倒人生翻身宝典</h1><div class="sub">气运 · 翻身 · 改命</div></div>
+  <nav id="toc">
+    <a href="#ch1">一、三大公理</a>
+    <a href="#ch2">二、适用人群</a>
+    <a href="#ch3">三、核心宗旨</a>
+    <a href="#ch4">四、实操</a>
+    <a href="#ch5">五、翻身之后注意事项</a>
+    <a href="#ch6">六、如何加入气运研学社</a>
+    <a href="#ch7">七、学社社规</a>
+    <a href="#ch8">八、一些延伸思考</a>
+    <a href="#ch9">九、社长其人</a>
+    <a href="#ch10">十、联系我们</a>
+    <a href="#app">番外 · 学社诗</a>
+  </nav>
+</aside>
+
+<main class="main">
+<div class="inner">
+  <header class="hero">
+    <img src="2.png" alt=" " width="770" height="335">
+    <h2> </h2>
+    <p> </p>
+    <p> </p>
+  </header>
+
+  <section class="chapter" id="ch1">
+    <h2 class="sec"><span class="dot"></span>一、三大公理</h2>
+    <h3 class="sub">公理1：世界的构成就是50%概率的正和反。</h3>
+    <p>注：从朴素古老的阴阳理论，到与生活息息相关的计算机底层逻辑，再到还没研究透彻的量子力学，无不充斥着50%正反对立的影子。</p>
+    <h3 class="sub">公理2：硬币只能扔一次。</h3>
+    <p>注：硬币只有扔第一次的时候，才是50%正反概率。你想要正，第一次扔中了，贪心又扔了第二次，连续两次扔中正的概率为25%。所以扔硬币要么不扔，要扔就只扔一次。</p>
+    <h3 class="sub">公理3：游戏不好玩可以删掉不玩。</h3>
+    <p>注：至少在当今世界，每个人都有自主删除游戏的能力和权利，它们并没有被剥夺，在未来世界甚至有可能会被剥夺掉删游的自由。</p>
+  </section>
+
+  <section class="chapter" id="ch2">
+    <h2 class="sec"><span class="dot"></span>二、适用人群</h2>
+    <h3 class="sub">（一）潦倒人士</h3>
+    <p>你是否正在经历十分糟糕的人生，但你的问题99%都能用钱解决？你是否学业不顺，工作也不顺，但它们都能用钱解决？你是否认为你的收入让你看不到未来？你是否认为生活现状正在逐渐下降，未来5-10极大可能崩盘？你是否认为你10年、20年后不知道自己在做什么、能做什么，对稳定收入没有预期？</p>
+    <div class="note">前提：但你还没有大额负债，那么你就适用本宝典！</div>
+    <div class="example"><div class="et">举例 1</div><p>一个38岁的男人在成都，送着外卖，一个月拼死拼活6000元，有一套裁员前在私企上班时买的小房子，一个月还贷款3000元，一年下来消费省着点能攒下点钱，但是身体一天不如一天，也不知道还能干几年。家里基本上没什么可助力的，这样的日子，对未来没有丝毫信心，也没有技能和人脉去破局，创业更不敢想，收入如果断了就是慢性死亡。</p></div>
+    <div class="example"><div class="et">举例 2</div><p>杭州，34岁算法工程师，年包80万，其实作为算法工程师来说，这个年龄这个收入算混得不好的。因此他知道自己很有可能过不去35岁这个坎了，他所在的中厂也的确启动了裁员。然而他在2021年高位上车了一套90平的紧凑套三，4万2的均价，现在均价2万6，接近腰斩。孩子5岁，老婆是全职太太，一旦裁员立马崩盘。</p></div>
+    <h3 class="sub">（二）追梦人士</h3>
+    <p>你是否在心底仍有一团火焰，只是没有人知道它在燃烧，甚至你自己几乎看不到它的火星？你是否仍记得儿时的梦想，它至今仍未褪色，时常让你魂牵梦绕？你是否觉得有一件事自己非走不可，不做这辈子真是白活了，可是客观上欠缺启动它的资金？</p>
+    <div class="example"><div class="et">举例 3</div><p>老王是一个运气不错的人，他曾经是一家本土大型餐饮公司的经理，靠上班攒下一些钱后踩上了大牛市的红利，他拿着赚来的钱辞职开了一家小餐馆，一年净利润也有个30万左右。但他积累了这么多年的餐饮经验与人脉，他一直想做一件事，就是餐饮供应链。他算了一下，他把他所有的资产变现加上贷款，也只能凑出500万，可是他要做的事，无论如何，没有1000万绝无启动的可能。为此他郁郁寡欢，这是他一辈子想做的事，可是没有任何契机，只能在麻木中日复一日。</p></div>
+    <h3 class="sub">（三）没有底牌的人是不适用的</h3>
+    <p>如果一个人已经凑不出来任何资产了，也借不到任何钱了，有着无法直视的负债，那么这种情况，本宝典也没有办法，死局是解不开的。</p>
+  </section>
+
+  <section class="chapter" id="ch3">
+    <h2 class="sec"><span class="dot"></span>三、核心宗旨</h2>
+    <h3 class="sub">（一）英雄与勇气</h3>
+    <p>你是否在影视作品、名著小说中看到过这样的桥段：一个可怜人，被恶人欺压，家破人亡，他走投无路的情况下，没有人帮助，拖着残缺的身躯，拿着没有什么杀伤力的武器，一步又一步地走向敌人的基地，BGM宏大而深沉，他在以卵击石，但他的勇气值得称颂，因为他在拼命，最终，在无数无法想象的困难后，他胜利了，他成为了英雄。</p>
+    <p>请你思考。如果把命运比作敌人，你有跟命运拼过命吗？一个高三的少年，每天要照顾病重的父亲，同时还要走10里路去读书，每年学到凌晨2点，连辅导书都是借的，只为考出大山，报道亲人，这，是在和命运拼命。是我们印象中典型的拼命，他有勇气，有韧性，他是英雄。而如今，无论你曾经是否有跟命运拼过命，你现在又到了要拼命的时刻了。那么，如何拼？</p>
+    <h3 class="sub">（二）面对失败</h3>
+    <p>如何拼，先不讲。影视作品中，只有主角和BOSS拼命，有赢的份，更多的时候NPC和BOSS拼命的下场，就是死亡。同样的，你如果正式决定和命运拼命了，你的结局，是死亡。所以，我一定要劝你，好好想一想，真的到了不得不拼命，必须要拼命，一定要拼命的时候了吗？</p>
+    <div class="warn">真的要拼命吗？真的要拼命吗？真的要拼命吗？输了会死！输了会死！输了会死！</div>
+    <h3 class="sub">（三）牢记公理</h3>
+    <p>再看一遍气运研学社三大公理吧。一定要牢牢记住他。假设有造物者，它创造人类时给了性这个生理礼物，这是一项很大的馈赠。同时它也给了人类社会一个原始的、最高级的、人人都能使用的官方外挂，那就是：赌博。</p>
+    <h3 class="sub">（四）翻身心法</h3>
+    <p>本宝典指导你翻身的方法就是赌博。但，这里的赌博是指原始的、最古老的、最高级的赌博理念，并非人类后世创造的赌场、赌马、赌球等等花样。在这一点上，凡习我《潦倒人生翻身宝典》之人，需绝对遵守戒赌的原则，杜绝一切形式的赌博。</p>
+    <p>公理1告诉了我们世界的底层逻辑，就是正反两面，各50%概率，那么如果你赌一次，那么你赢的概率就是50%，你再也没有办法从其他形式的赌博获得如何高的胜率了。公理2告诉了我们硬币只扔一次，第一次一定是输赢都是50%的概率。那么此刻，你终于明白了，潦倒人生的翻身唯一之法便是：</p>
+    <div class="warn">拿上你所有身家，去赌大小，只赌一次此后绝不再赌，你将会获得高达50%的概率去重获新生，赢得人生！</div>
+    <p>仔细想一想，当你在四处筹钱的时候，像不像那位英雄在忍者身体的病痛默默地磨着准备拿去拼命的、可笑的刀。但是你此刻就是英雄，你是自己的英雄，因为你终于有勇气和这该死的命运做决一死战了！让我再叫你一声，英雄！</p>
+    <p>再回看举例1，这位外卖员，他把成都的小房子做多次抵押，再把网贷能贷的都贷出来，再向亲戚朋友全部借一个遍的钱，他能凑出来150万，这150万他拿去赌大小，50%的胜率，胜利后他将会凭空多出150万来，他把该还的钱还了，送外卖直到他送不动，剩下的钱，足够他安安稳稳过完这一生。再看举例2，这位程序员，同样能凑到接近350万，在和命运的拼命中，他胜利后，即便被裁员，可以换到一个6线城市去，重新和妻子找份工作，孩子在当地读书，幸福小康地过往一生没有问题。再看举例3，他凑到500万后，翻身到1000万，他终于可以实现他一辈子的梦想了，安稳算什么，他不要安稳，他只求曾经燃烧过，至于梦想之后完成得怎样，那是后面的事，他已经触碰到了自己的梦想，此生无憾。</p>
+    <h3 class="sub">（五）不要拼命</h3>
+    <div class="warn">不要拼命！不要拼命！不要拼命！你真的想好了吗？你真的走投无路了吗？</div>
+    <p>再次强调，输的概率也是50%，千万不要一时冲动。</p>
+  </section>
+
+  <section class="chapter" id="ch4">
+    <h2 class="sec"><span class="dot"></span>四、实操</h2>
+    <h3 class="sub">（一）优秀的赌大小方式</h3>
+    <p>在前面的章节，我们已知，绝对不能沾上赌博，拼命只能拼一次，只有第一次才是50%的概率赢。那么你可能会想到，去正规赌场里赌大小，是的，没有问题，去掉赢了之后它几个点的抽水，你仍然赢了非常多，接近翻倍的。</p>
+    <p>但是这种盈利方式是折线型的，并非曲线型的。比如说，当你下注的时候，你就只能等来两个结果，要么大，要么小，小就是归零，大的金额也是固定。古代的话，可能只有这个办法。而我们在现代社会，因此我们有用更优秀的方式去赌大小。你开通一个股票账户或者BTC的合约账户，通过杠杆放大涨跌幅，以达到快速出结果的目的。注意，这里杠杆只为加速出结果，并不是说你上了杠杆你就赚更多了，因为股票或者BTC的涨跌幅没有那么大。</p>
+    <p>假设你开了杠杆，买涨，现在盈利100%，就是说你的钱已经翻倍了，当然，会扣掉一些费用。如果是传统方式，你这单就结束了。但是曲线型的盈利方式特点就是，你可以设定，当你的盈利从100%掉到95%时，自动卖出，你可以保证你至少有95%的盈利，而他如果继续上涨，你将会得到更多，想什么时候卖出就什么时候手动卖出。</p>
+    <h3 class="sub">（二）你有哪些牌可以打？</h3>
+    <p>房、车、存款、借款、金融产品等等等等，这些不赘述，至于如果把这些变成赌资，也很简单，不赘述，重要的是，你一定要想清楚。你有高达50%的概率翻身，但你也有50%的概率死亡。为什么说死亡，你那样凑钱之后，如果输了，你没有脸再见任何人。还记得公理3吗？游戏不好玩可以删掉不玩。请你记住，你选择和命运拼命，你是英雄，可是你输掉后还继续连累爱你的人，那么你是狗熊。</p>
+  </section>
+
+  <section class="chapter" id="ch5">
+    <h2 class="sec"><span class="dot"></span>五、翻身之后注意事项</h2>
+    <h3 class="sub">（一）永远不可再碰赌博</h3>
+    <p>第一次是50胜率，第二次就是25%，永远不要贪心。</p>
+    <h3 class="sub">（二）保持或者你的欲望水平</h3>
+    <p>你赢的钱是根据你的消费估算你未来几十年的花费，或者是你为了完成你梦想的金额，如果你因为你增加了钱而增加欲望，那么你将万劫不复。</p>
+    <h3 class="sub">（三）有条件的情况下帮助他人翻身，传播我们的理论</h3>
+    <p>当你身边有人绝望到快自杀了，告诉他我们的理论，也许，他将获得那50%概率的胜利，这比直接去死好多了。</p>
+  </section>
+
+  <section class="chapter" id="ch6">
+    <h2 class="sec"><span class="dot"></span>六、如何加入气运研学社</h2>
+    <h3 class="sub">（一）什么人可以加入</h3>
+    <ol>
+      <li>如果你只是学习我们的理论，我们有公开群。但此刻你还不是我们的成员。无论你是接触我们的理论之前或者是接触之后和命运拼命，只要你在我们的活动中讲出你的经历，符合我们的理念，你就可以成为我们的正式成员，加入我们的内部群。但是注意，我们的研学社为什么叫"气运"二字，因为我们都是在和命运的抗争中胜利的人，我们都是英雄，我们都是那50%胜利的一方，我们都是拥有绝对气运之人，我们之间互相联系、交流就是正能量的不断交融，我们的气运会越来越好。</li>
+      <li>你一定是在经济上劫后余生的人，没有经历劫后余生，再有钱也不符合。</li>
+      <li>不考察你的具体财富体量，但你的财富需要在你的支出水平下可以用一辈子。</li>
+    </ol>
+    <h3 class="sub">（二）加入之后需要做什么</h3>
+    <p>其实什么都不用做，大家自然交流、聚会，气运就互相融合，也不收费，所有活动AA制，别忘了，我们都已经是不用为钱烦恼的人了，不是吗？只不过如果你在生活中，遇到了可以用我们的理论去拯救的人，你能帮就帮一下。</p>
+    <h3 class="sub">（三）失败的人怎么办</h3>
+    <p>再次强调，这不是儿戏，失败了会死。你不要想着去试一试，失败再说。你失败了，你继续拖累其他人的话，你完全背离了我们的宗旨，如果是这样，你根本就不应该开始。如果你真的完完全全确定了，要和命运拼命了，你去了，但是你输了。如果我们得知了你的故事，我们会告诉大家你的故事，并根据你的经历做成电子墓碑，你值得尊敬，你删游了，但是你仍然是骄傲的。</p>
+  </section>
+
+  <section class="chapter" id="ch7">
+    <h2 class="sec"><span class="dot"></span>七、学社社规</h2>
+    <ol>
+      <li><strong>学社不进行任何商业行为</strong>，成员也不可以学社名义进行。</li>
+      <li><strong>学员之间私下财务行为与学社无关</strong>，也绝不鼓励。</li>
+      <li><strong>除学社社长外其他成员不可以学社名义公开组织活动。</strong></li>
+      <li><strong>一切活动AA制</strong>，鼓励高净值学员主动承担。</li>
+      <li><strong>杜绝一切违法犯罪行为</strong>（国内法、国际法）。</li>
+      <li><strong>拼命前拼命后，你的欲望不可改变</strong>，如果你增加了新的欲望你的钱覆盖不了你的余生；或者你赢了一次，你觉得你还可以再赢一次，对不起，你背离了我们的宗旨，请你离开。</li>
+    </ol>
+  </section>
+
+  <section class="chapter" id="ch8">
+    <h2 class="sec"><span class="dot"></span>八、一些延伸思考</h2>
+    <h3 class="sub">1. 哲学</h3>
+    <p>我曾经在思考一个问题，我们中国人爱说的"道"，我以前认为，大道才是道，大道才值得传播。可以现在我的想法好像改变了。我的理论只适用于特定人群，这显然不是大道，但是它既有纲领性的理论，又有完全可以照搬进行的实操，这样的宝典的的确确能够帮助到人，那就是小道，小道也值得传播。</p>
+    <h3 class="sub">2. 圣贤</h3>
+    <p>在我心中，老子是远超孔子的，甚至说孔子和老子就不在一个赛道。但是基于朴素的普世价值观，这里暂且把他们放到一起，统称为圣贤。老子通过他的理解解释了宇宙，当然，按照他的说法讲出来了就变味了，还得靠自己悟。孔子主要讲做人、道理、为政这些。我想说的是什么呢，我有一天突然发现，如果未来某一天，货币消失了，市面流通是一种人体能量Token 的东西，又或者，在别的星球，没有国家这个概念，道德也和我们的完全不同，那个时候孔子的东西也许完全用不上了，但是呢，我发现，赌博仍然存在，赌大小仍然是50%的胜率，那么，就是说，在地球的影响力层面，我的理论不如孔子，是完完全全的只服务于小部分人群，但是我的理论却可以穿越时空、穿越意识形态、穿越社会结构，无论在什么样结构下，哪怕几亿年后，只要有文明存在，就可以赌大小，就可以和命运拼命。这是一个很神奇的发现，从这个角度讲，我就是思想家、哲学家、教育家，哈哈哈，对吧。</p>
+    <h3 class="sub">3. 法律</h3>
+    <p>我是在叫人去死吗？不是。是一个人本来就看到自己的结局是死亡了，与其眼看着死亡的到来，不如通过学习我的理论，让自己提前面对死亡，从必死变成50%概率，并且拼命拼赢之后可以有质量地好好活下去。</p>
+    <h3 class="sub">4. 宗教</h3>
+    <p>试想一下，在多年以后，学习理论的有很多人，正式成员也有很多人。在我所了解的世界运行规则里，会出现一个很有趣的现象，会有人总结正式成员为什么会赢，有哪些共性，逐渐衍生出一套类似科仪的言行、规则，通过这些方式来提升拼命时的气运。输掉的人没法再发声，胜利的人而又更加坚信自己做的科仪提升了自己的气运从而胜利。长此以往，也许会成为一种新兴宗教，或许拜的神像是赌行的祖师爷韩信？乌曹？</p>
+    <p>总之，这可能会很有趣，如果要追踪研究这个过程，特别有钱的朋友可以单独联系，这需要一定的经费。</p>
+  </section>
+
+  <section class="chapter" id="ch9">
+    <h2 class="sec"><span class="dot"></span>九、社长其人</h2>
+    <p>这一节讲的是我悲惨哀痛的一生，同时也是这个理论诞生的过程。</p>
+    <p>我生在一个的小工业城市，父母在我12岁时离婚，也就是小学升初中的那个夏天，后妈住进来了。后妈是个洗脚妹，我的父亲是62年生人，他毕业于现在的985华南理工大学的化学专业。在那个年代，是无法想象的牛逼。但是他出身农村，思想上的上限锁死了，他没有留在大城市，反而回了老家。这也是他悲剧一生的开始。如果不离婚，我父母都是非常好的单位，离婚后家里就没那么宽裕了。因为他们闹离婚，我小时候基本放养，我没学坏，但是一些基本的做人方面的教育也缺失了，这也是我悲惨一生的开始。我从初中到高中，6年期间，就是每个班级里都有一个的那个胖子，受人欺负，嘲笑，我运气好一点，没有人霸凌我，但是语言上的霸凌其实也是霸凌，让我极度自卑。</p>
+    <p>高考前，我没有目标，不知道要做什么，以至于高考后的第二天，我的身体机能不知道触发了什么机制，让我把所学的东西都忘了，瞬间就不会了，同时也失去了学习能力，学东西不行了。我虽然2008年读的二本，但是我是电气专业，很好找工作，到现在平均同学收入不低于20万。但是因为自卑（自身条件+家庭经济变差），自卑到想要逃离到没有任何人认识我的地方，所以我没有按照电气专业应该走的路去走，而是去了外省随便瞎找工作。</p>
+    <p>然后开始了我噩梦般的14年，我在外省晃荡了一年半，一事无成，但是嘴皮子不知道怎么变好了，混不出来决定到家乡的省会城市，也是我读书的地方。找了份外企工作，其实挺好的，但是因为我小时候缺失的教育，导致我人际关系不行，原本我的岗位在2014年能挣至少20万一年，中间很多门道因为我的性格原因，领导没有让我去碰。后来脑袋抽了跑去开店，亏了，又去做外汇，又亏了。然后底谷时获得一份销售的工作，是一家互联网大厂的正式合同，发展很好，但是又是性格原因，我虽然工作做得很好但是人际太少，没有取得职位上的发展。后面去通过跳操去其他大厂实现了工资和职位的提升，但是还是那个问题，人际。然后经历裁员。</p>
+    <p>此时简历已经花了，不好找工作了，然后我又考公，又浪费了一年，没考上，又接触到了花钱进国企的工作，又被骗了。走投无路的情况下，我悟出了这个理论。于是我集中了所有能集中的资源，我选择了和命运拼一次命，对了，我不会去跑网约车送外卖的，绝不，因为如果我选择电气专业正常走的路，我会在一家绝对不会裁员的央企拿着稳稳当当的20万年薪，我宁愿死，我也不去。我是哭着写下这一段的，因为太过痛苦，只有真正和命名拼过命的人，才会懂得这种感受。是的，50%的概率，我胜利了。</p>
+    <p>我的欲望没有变化，我的钱够我活一辈子了。但我的欲望有没有波动过呢，有的，你们有没有小时候的同学玩得不错后来不联系了，既是朋友但是考试又会暗暗较劲。我有一个这样的朋友他现在是阿里的Ai算法工程师，还上了阿里云的官方抖音露脸，年薪150万，而那时我们的成绩接近，但是高考他超常发挥我发挥失利，本来我也进了互联网大厂，但是我小时候缺失的教育使我人际太差而掉队，我有时候确实想到这个会很难过，难过得甚至觉得生活都没有意思了。我现在隐居在一家公司做着轻松的一线工作，虽然不上班也行，但这样也挺好的。并且这不妨碍我写下这个伟大的理论，它曾经救了我，</p>
+    <p>它，还会救更多人！</p>
+  </section>
+
+  <section class="chapter" id="ch10">
+    <h2 class="sec"><span class="dot"></span>十、联系我们</h2>
+    <div class="note">
+      <p><strong>Youtube：</strong><a href="https://www.youtube.com/@LuckyStudyPrinciple" target="_blank" rel="noopener noreferrer">@LuckyStudyPrinciple</a>（视频内容都在这里）</p>
+      <p><strong>X：</strong>@laowai185620</p>
+      <p><strong>Email：</strong>byddyqianqian@outlook.com</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="app">
+    <h2 class="sec"><span class="dot"></span>番外 · 学社诗</h2>
+    <div class="poem">遭灾受厄下阎殿，<br>几度难堪人世煎。<br>今朝终得风化雨，<br>俯身叩首拜苍天。</div>
+  </section>
+</div>
+</main>
+
+<script>
+(function(){
+  try{
+    var toggle=document.getElementById('navToggle'),backdrop=document.getElementById('backdrop');
+    function closeNav(){document.body.classList.remove('nav-open')}
+    toggle.addEventListener('click',function(){document.body.classList.add('nav-open')});
+    backdrop.addEventListener('click',closeNav);
+    var links=document.querySelectorAll('#toc a'),secs=document.querySelectorAll('section.chapter');
+    links.forEach(function(a){a.addEventListener('click',function(e){
+      if(window.innerWidth<=820)closeNav();
+      var t=document.getElementById(a.getAttribute('href').slice(1));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+    })});
+    window.addEventListener('scroll',function(){
+      var pos=window.scrollY+120,cur='';
+      secs.forEach(function(s){if(s.offsetTop<=pos)cur=s.id});
+      links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+cur)});
+    },{passive:true});
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
