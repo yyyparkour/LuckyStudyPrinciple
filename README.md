@@ -1,3 +1,6 @@
+《潦倒人生翻身宝典》，by 气运研学社。
+《The Guide to Turning Your Life Around from Despair》
+
 Forking is prohibited, reposting and promotion are allowed, and I welcome any contact from individuals.
 
 禁止fork，允许转发，允许宣传，欢迎联系我本人。
